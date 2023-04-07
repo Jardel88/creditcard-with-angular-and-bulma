@@ -1,0 +1,23 @@
+<input [formControl]="control">
+<ng-container *ngIf="
+   control.dirty &&
+   control.touched &&
+   control.errors">
+  <div *ngIf="control.errors?.['required']">
+    Value is required.
+  </div>
+  <div *ngIf="control.errors?.['minlength']">
+    Value you intered is
+    {{control?.errors?.['minlength'].actualLength | json}}
+    characters long, but it must be at least
+    {{control?.errors?.['minlength'].requiredLength | json}}
+    characters
+  </div>
+  <div *ngIf="control.errors?.['maxlength']">
+    Value you intered is
+    {{control?.errors?.['maxlength'].actualLength | json}}
+    characters long, but it cannot be longer than
+    {{control?.errors?.['maxlength'].requiredLength | json}}
+    characters
+  </div>
+</ng-container>
