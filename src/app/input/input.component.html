@@ -21,5 +21,8 @@
       {{control?.errors?.['maxlength'].requiredLength | json}}
       characters
     </div>
+    <div class="help is-danger" *ngIf="control.errors.pattern">
+      Invalid format
+    </div>
   </ng-container>
 </div>
